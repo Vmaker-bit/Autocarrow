@@ -1,0 +1,72 @@
+local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+
+local PhantomForcesWindow = Library:NewWindow("Combat")
+
+local AutoFarm = PhantomForcesWindow:NewSection("Kill Options")
+
+AutoFarm:CreateButton("Tp To 200Lvl", function()
+for i,v in pairs(game:GetService("Workspace").Map.NPCs:GetDescendants()) do
+if v.Name == "i_stabman" or v.Name == "i_stabman [Lvl. 15+]" or v.Name == "i_stabman [Lvl. 40+]" or v.Name == "i_stabman [Lvl. 80+]" or v.Name == "i_stabman [Lvl. 100+]" or v.Name == "i_stabman [Lvl. 200+]" then
+      if v:FindFirstChild("Head").Main.Text.Text == "i_stabman [Lvl. 200+]" then
+          v:FindFirstChild("Done"):FireServer()
+      end
+   end
+end
+            pcall(function()
+            for i, v in pairs(game:GetService("Workspace").Living:GetChildren()) do
+                if v.Name == "Boss" and v:FindFirstChild("Humanoid").Health ~= 0 and _G.AutoFarm5 == true then
+                if v.Head.Display.Frame.t.Text == "Jotaro P6 [Dungeon]" then
+                    repeat
+                        task.wait()
+                        pcall(function()
+                            for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.CDgui.fortnite:GetChildren()) do
+                                if v:IsA("Frame") and v.Textt.Text == "Punch" then
+                                    
+                                else
+                                    game:GetService("Players").LocalPlayer.Character.StandEvents.M1:FireServer()
+                                end
+                            end
+                            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Stand") then
+                                game:GetService("Players").LocalPlayer.Character.Stand:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+                            end
+                            if _G.AutoFarm5 == true then
+                                game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0, -7, 3, 0.5, 0, 0, 1) -- -593.952698, 66.6276474, -783.119934, -0.707110405, -5.96460623e-08, -0.707103133, -8.71555841e-08, 1, 2.80376944e-09, 0.707103133, 6.36105568e-08, -0.707110405
+                            else
+                                game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+                            end
+                            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+                            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Aura").Value == false   then
+                                game:GetService("Players").LocalPlayer.Character.StandEvents.Summon:FireServer()
+                            end
+                        end)
+                    until v:FindFirstChild("Humanoid").Health == 0 or _G.AutoFarm5 == false
+                    
+                    if _G.AutoFarm5 == true then
+                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, 0, 1000))
+                    end
+                    if _G.AutoFarm5 == true then
+                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, 10, 0))
+                    end
+                end
+                end
+        end
+            end)
+end)
+AutoFarm:CreateButton("Tp to Right Spot", function()
+-- Place this script inside a LocalScript in StarterPlayerScripts or any other location where it will run on the client
+
+-- Insert the desired destination coordinates here
+local destination = Vector3.new(-190.59246826171875, 66.62255859375, -392.5912170410156) -- Change the values to the desired coordinates
+
+-- Get the player's character
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Teleport the player to the destination
+humanoidRootPart.CFrame = CFrame.new(destination)
+end)
+AutoFarm:CreateButton("Use Skill Z", function()
+game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
+end)
+
