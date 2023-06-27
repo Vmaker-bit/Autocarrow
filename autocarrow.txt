@@ -56,12 +56,15 @@ AutoFarm:CreateButton("Tp to Right Spot", function()
 -- Place this script inside a LocalScript in StarterPlayerScripts or any other location where it will run on the client
 
 -- Insert the desired destination coordinates here
-local destination = Vector3.new(-190.59246826171875, 66.62255859375, -392.5912170410156) -- Change the values to the desired coordinates
+local destination = Vector3.new(-13430.57421875, -61.7315559387207, -2399.021728515625) -- Change the values to the desired coordinates
 
 -- Get the player's character
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Teleport the player to the destination
+humanoidRootPart.CFrame = CFrame.new(destination)
 
 -- Teleport the player to the destination
 humanoidRootPart.CFrame = CFrame.new(destination)
